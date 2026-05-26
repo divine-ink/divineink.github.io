@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop - Divine Ink Calligraphy</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@400;600;700&family=Karla:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/products.css">
+</head>
+
+<body class="grid-bg">
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html" class="nav-logo">Divine Ink</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-home">Home</a></li>
+      <li><a href="about.html" class="nav-about">About</a></li>
+      <li><a href="products.html" class="nav-shop active">Shop</a></li>
+      <li><a href="testimonials.html">Social Proof</a></li>
+    </ul>
+  </nav>
+
+  <!-- SHOP HEADER -->
+  <div class="shop-header">
+    <p class="section-label">✦ The Collection</p>
+    <h1>Art Shop</h1>
+    <p>Original prints, commissions &amp; stationery — all handwritten with love.</p>
+  </div>
+
+  <!-- SHOP LAYOUT -->
+  <div class="shop-layout">
+    <!-- FILTERS PANEL -->
+    <aside class="filters-panel">
+      <p class="filter-title">Filters</p>
+
+      <!-- Search -->
+      <div class="filter-group">
+        <p class="filter-group-label">Search</p>
+        <div class="search-bar-wrap">
+          <span class="search-icon">⌕</span>
+          <input class="search-bar" type="text" placeholder="Search pieces..." id="search-input"
+            oninput="filterProducts()">
+        </div>
+      </div>
+
+      <!-- Category -->
+      <div class="filter-group">
+        <p class="filter-group-label">Category</p>
+        <label class="filter-option"><input type="checkbox" value="print" onchange="filterProducts()"
+            class="cat-check"> Art Prints</label>
+        <label class="filter-option"><input type="checkbox" value="commission" onchange="filterProducts()"
+            class="cat-check"> Commissions</label>
+        <label class="filter-option"><input type="checkbox" value="stationery" onchange="filterProducts()"
+            class="cat-check"> Stationery</label>
+        <label class="filter-option"><input type="checkbox" value="framed" onchange="filterProducts()"
+            class="cat-check"> Framed Art</label>
+      </div>
+
+      <!-- Style -->
+      <div class="filter-group">
+        <p class="filter-group-label">Style</p>
+        <label class="filter-option"><input type="checkbox" value="modern" onchange="filterProducts()"
+            class="style-check"> Modern Calligraphy</label>
+        <label class="filter-option"><input type="checkbox" value="copperplate" onchange="filterProducts()"
+            class="style-check"> Copperplate</label>
+        <label class="filter-option"><input type="checkbox" value="brush" onchange="filterProducts()"
+            class="style-check"> Brush Lettering</label>
+      </div>
+
+      <!-- Price -->
+      <div class="filter-group">
+        <p class="filter-group-label">Price Range (₹)</p>
+        <div class="price-range">
+          <input type="number" id="price-min" placeholder="0" oninput="filterProducts()">
+          <span>—</span>
+          <input type="number" id="price-max" placeholder="5000" oninput="filterProducts()">
+        </div>
+      </div>
+
+      <button class="filter-apply" onclick="clearFilters()">Clear All Filters</button>
+    </aside>
+
+    <!-- PRODUCTS -->
+    <div>
+      <!-- RESULTS BAR -->
+      <div class="shop-results-bar">
+        <p class="results-count" id="results-count">Showing 8 pieces</p>
+        <select class="sort-select" onchange="sortProducts(this.value)">
+          <option value="default">Sort: Featured</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="name">Name A–Z</option>
+        </select>
+      </div>
+
+      <!-- TAG FILTERS -->
+      <div class="tag-filters">
+        <button class="tag-btn active" onclick="setTagFilter('all', this)">All</button>
+        <button class="tag-btn" onclick="setTagFilter('print', this)">Prints</button>
+        <button class="tag-btn" onclick="setTagFilter('commission', this)">Commissions</button>
+        <button class="tag-btn" onclick="setTagFilter('stationery', this)">Stationery</button>
+        <button class="tag-btn" onclick="setTagFilter('framed', this)">Framed</button>
+      </div>
+
+      <!-- PRODUCTS GRID -->
+      <div class="products-grid" id="products-grid"></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Divine Ink</div>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="products.html">Shop</a></li>
+      <li><a href="testimonials.html">Social Proof</a></li>
+      <li><a href="https://instagram.com" target="_blank" title="Follow us on Instagram">Instagram</a></li>
+    </ul>
+    <p>© 2026 Divine Ink Calligraphy. All rights reserved.</p>
+  </footer>
+
+  <script src="js/products-data.js"></script>
+  <script src="js/products.js"></script>
+
+</body>
+
+</html>

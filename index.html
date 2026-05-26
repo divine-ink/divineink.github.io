@@ -54,7 +54,7 @@
       left: 0;
       right: 0;
       z-index: 100;
-      background: rgba(250, 249, 255, 0.92);
+      background: rgba(250, 249, 255, 0.95);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
       padding: 0 2rem;
@@ -70,6 +70,7 @@
       font-weight: 700;
       color: var(--lavender-deep);
       letter-spacing: 0.02em;
+      text-decoration: none;
     }
 
     .nav-links {
@@ -96,20 +97,7 @@
       color: var(--lavender-dark);
     }
 
-    /* PAGE MANAGEMENT */
-    .page {
-      display: none;
-      padding-top: 64px;
-      min-height: 100vh;
-    }
-
-    .page.active {
-      display: block;
-    }
-
-    /* ========================
-     HOME PAGE
-  ======================== */
+    /* HERO */
     .hero {
       min-height: calc(100vh - 64px);
       display: flex;
@@ -117,31 +105,32 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 4rem 2rem;
+      padding-inline: 2rem;
       position: relative;
       overflow: hidden;
+      background: url('images/homepage3.png') center/cover no-repeat;
+      margin-top: 64px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(250, 249, 255, 0.85);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
     }
 
     .hero-circle-1 {
-      position: absolute;
-      width: 400px;
-      height: 400px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(184, 169, 232, 0.25), transparent 70%);
-      top: 10%;
-      left: -10%;
-      pointer-events: none;
+      display: none;
     }
 
     .hero-circle-2 {
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(184, 169, 232, 0.18), transparent 70%);
-      bottom: 5%;
-      right: -5%;
-      pointer-events: none;
+      display: none;
     }
 
     .hero-tag {
@@ -225,7 +214,7 @@
       background: var(--lavender-light);
     }
 
-    /* FEATURED WORKS */
+    /* HERO */
     .section {
       padding: 5rem 2rem;
       max-width: 1200px;
@@ -379,638 +368,6 @@
       font-size: 0.95rem;
     }
 
-    /* ========================
-     ABOUT PAGE
-  ======================== */
-    .about-hero {
-      padding: 4rem 2rem 2rem;
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    @media (max-width: 720px) {
-      .about-hero {
-        grid-template-columns: 1fr;
-      }
-
-      nav {
-        padding: 0 1rem;
-      }
-
-      .nav-links a {
-        padding: 0.35rem 0.6rem;
-        font-size: 0.72rem;
-      }
-    }
-
-    .about-portrait {
-      aspect-ratio: 3/4;
-      background: linear-gradient(135deg, var(--lavender-light), var(--lavender-mid));
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Dancing Script', cursive;
-      font-size: 4rem;
-      color: var(--lavender-deep);
-      border: 1px solid var(--border);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .about-portrait-grid {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(124, 107, 181, 0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(124, 107, 181, 0.08) 1px, transparent 1px);
-      background-size: 24px 24px;
-    }
-
-    .about-portrait-text {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-    }
-
-    .about-portrait-text small {
-      display: block;
-      font-family: 'Karla', sans-serif;
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--lavender-dark);
-      margin-top: 0.5rem;
-    }
-
-    .about-content .section-label {
-      margin-bottom: 0.75rem;
-    }
-
-    .about-content h1 {
-      font-family: 'Dancing Script', cursive;
-      font-size: 3rem;
-      color: var(--ink);
-      margin-bottom: 1.5rem;
-      line-height: 1.2;
-    }
-
-    .about-content p {
-      color: var(--ink-muted);
-      line-height: 1.85;
-      margin-bottom: 1rem;
-      font-size: 0.95rem;
-    }
-
-    .about-stats {
-      display: flex;
-      gap: 2rem;
-      margin: 2rem 0;
-      flex-wrap: wrap;
-    }
-
-    .stat {
-      text-align: left;
-    }
-
-    .stat-num {
-      font-family: 'Dancing Script', cursive;
-      font-size: 2.5rem;
-      color: var(--lavender-deep);
-      line-height: 1;
-    }
-
-    .stat-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      margin-top: 0.2rem;
-    }
-
-    .skills-section {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 3rem 2rem;
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 1.25rem;
-      margin-top: 2rem;
-    }
-
-    .skill-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.5rem;
-      position: relative;
-    }
-
-    .skill-card-corner {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 0 0 28px 28px;
-      border-color: transparent transparent var(--lavender-mid) transparent;
-      border-radius: 0 0 14px 0;
-    }
-
-    .skill-icon {
-      width: 40px;
-      height: 40px;
-      background: var(--lavender-light);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Dancing Script', cursive;
-      font-size: 1.4rem;
-      color: var(--lavender-deep);
-      margin-bottom: 1rem;
-    }
-
-    .skill-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      color: var(--ink);
-      margin-bottom: 0.4rem;
-    }
-
-    .skill-card p {
-      font-size: 0.83rem;
-      color: var(--ink-muted);
-      line-height: 1.6;
-    }
-
-    /* ========================
-     SHOP PAGE
-  ======================== */
-    .shop-header {
-      padding: 3rem 2rem 1rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .shop-header h1 {
-      font-family: 'Dancing Script', cursive;
-      font-size: 3rem;
-      color: var(--ink);
-      margin-bottom: 0.5rem;
-    }
-
-    .shop-header p {
-      color: var(--ink-muted);
-      font-size: 0.95rem;
-    }
-
-    .shop-layout {
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1.5rem 2rem 4rem;
-    }
-
-    @media (max-width: 820px) {
-      .shop-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .about-hero {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .filters-panel {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.5rem;
-      height: fit-content;
-      position: sticky;
-      top: 80px;
-    }
-
-    .filter-title {
-      font-size: 0.7rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      font-weight: 600;
-      color: var(--lavender-dark);
-      margin-bottom: 1rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .filter-group {
-      margin-bottom: 1.5rem;
-    }
-
-    .filter-group-label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      margin-bottom: 0.6rem;
-    }
-
-    .filter-option {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 0.45rem;
-      cursor: pointer;
-      font-size: 0.88rem;
-      color: var(--ink-muted);
-      padding: 0.3rem 0.5rem;
-      border-radius: 8px;
-      transition: background 0.15s;
-    }
-
-    .filter-option:hover {
-      background: var(--lavender-light);
-      color: var(--lavender-dark);
-    }
-
-    .filter-option input[type="checkbox"] {
-      accent-color: var(--lavender-deep);
-      width: 14px;
-      height: 14px;
-    }
-
-    .price-range {
-      display: flex;
-      gap: 0.5rem;
-      align-items: center;
-      font-size: 0.83rem;
-      color: var(--ink-muted);
-    }
-
-    .price-range input {
-      width: 70px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 0.3rem 0.5rem;
-      font-size: 0.83rem;
-      color: var(--ink);
-      font-family: 'Karla', sans-serif;
-    }
-
-    .filter-apply {
-      width: 100%;
-      background: var(--lavender-deep);
-      color: #fff;
-      border: none;
-      border-radius: 20px;
-      padding: 0.6rem;
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-weight: 500;
-      cursor: pointer;
-      font-family: 'Karla', sans-serif;
-      transition: background 0.2s;
-    }
-
-    .filter-apply:hover {
-      background: var(--lavender-dark);
-    }
-
-    .shop-results-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 1.25rem;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-
-    .results-count {
-      font-size: 0.83rem;
-      color: var(--ink-muted);
-    }
-
-    .sort-select {
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 0.35rem 1rem;
-      font-size: 0.8rem;
-      color: var(--ink-muted);
-      font-family: 'Karla', sans-serif;
-      background: #fff;
-      cursor: pointer;
-    }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 1.25rem;
-    }
-
-    .product-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      overflow: hidden;
-      cursor: pointer;
-      transition: all 0.25s;
-    }
-
-    .product-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-    }
-
-    .product-thumb {
-      height: 170px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Dancing Script', cursive;
-      font-size: 2rem;
-      color: var(--lavender-deep);
-      position: relative;
-    }
-
-    .product-badge {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: var(--lavender-deep);
-      color: #fff;
-      font-size: 0.65rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-weight: 500;
-      padding: 0.2rem 0.6rem;
-      border-radius: 10px;
-    }
-
-    .product-body {
-      padding: 1rem;
-    }
-
-    .product-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--ink);
-      margin-bottom: 0.2rem;
-    }
-
-    .product-type {
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--lavender-deep);
-      margin-bottom: 0.6rem;
-    }
-
-    .product-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 0.75rem;
-    }
-
-    .product-price {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--lavender-dark);
-    }
-
-    .btn-cart {
-      background: var(--lavender-light);
-      border: none;
-      color: var(--lavender-dark);
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      font-weight: 600;
-      padding: 0.4rem 0.8rem;
-      border-radius: 20px;
-      cursor: pointer;
-      font-family: 'Karla', sans-serif;
-      transition: all 0.2s;
-    }
-
-    .btn-cart:hover {
-      background: var(--lavender-mid);
-    }
-
-    /* ========================
-     PRODUCT DETAIL PAGE
-  ======================== */
-    .detail-layout {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 3rem 2rem 5rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-
-    @media (max-width: 720px) {
-      .detail-layout {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-    }
-
-    .detail-img-wrap {
-      position: sticky;
-      top: 80px;
-    }
-
-    .detail-main-img {
-      width: 100%;
-      aspect-ratio: 1;
-      background: linear-gradient(135deg, var(--lavender-light), var(--lavender-mid));
-      border-radius: 20px;
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Dancing Script', cursive;
-      font-size: 5rem;
-      color: var(--lavender-deep);
-      position: relative;
-      overflow: hidden;
-      margin-bottom: 1rem;
-    }
-
-    .detail-thumbs {
-      display: flex;
-      gap: 0.75rem;
-    }
-
-    .detail-thumb {
-      width: 70px;
-      height: 70px;
-      border-radius: 10px;
-      background: var(--lavender-light);
-      border: 1.5px solid var(--border);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Dancing Script', cursive;
-      font-size: 1.4rem;
-      color: var(--lavender-deep);
-      transition: border-color 0.2s;
-    }
-
-    .detail-thumb.active,
-    .detail-thumb:hover {
-      border-color: var(--lavender-deep);
-    }
-
-    .detail-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--lavender-deep);
-      cursor: pointer;
-      margin-bottom: 1.5rem;
-      font-weight: 500;
-      transition: gap 0.2s;
-    }
-
-    .detail-back:hover {
-      gap: 0.7rem;
-    }
-
-    .detail-content .product-type {
-      font-size: 0.75rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .detail-title {
-      font-family: 'Dancing Script', cursive;
-      font-size: 2.5rem;
-      color: var(--ink);
-      margin-bottom: 0.5rem;
-      line-height: 1.2;
-    }
-
-    .detail-price {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--lavender-dark);
-      margin-bottom: 1.25rem;
-    }
-
-    .detail-desc {
-      font-size: 0.93rem;
-      color: var(--ink-muted);
-      line-height: 1.85;
-      margin-bottom: 1.75rem;
-    }
-
-    .detail-options {
-      margin-bottom: 1.75rem;
-    }
-
-    .option-label {
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-weight: 600;
-      color: var(--ink-muted);
-      margin-bottom: 0.6rem;
-    }
-
-    .option-pills {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-
-    .option-pill {
-      background: var(--cream-2);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 0.35rem 0.85rem;
-      font-size: 0.8rem;
-      cursor: pointer;
-      color: var(--ink-muted);
-      transition: all 0.15s;
-    }
-
-    .option-pill.selected,
-    .option-pill:hover {
-      background: var(--lavender-light);
-      border-color: var(--lavender-deep);
-      color: var(--lavender-dark);
-    }
-
-    .detail-actions {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-
-    .detail-actions .btn-primary {
-      padding: 0.85rem 2.5rem;
-      font-size: 0.8rem;
-    }
-
-    .detail-actions .btn-outline {
-      margin-left: 0;
-      padding: 0.85rem 1.5rem;
-    }
-
-    .detail-specs {
-      margin-top: 2rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .spec-row {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.85rem;
-      padding: 0.6rem 0;
-      border-bottom: 1px solid rgba(184, 169, 232, 0.12);
-    }
-
-    .spec-key {
-      color: var(--ink-muted);
-    }
-
-    .spec-val {
-      color: var(--ink);
-      font-weight: 500;
-    }
-
-    .related-section {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 2rem 2rem 4rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .related-section .section-title {
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
-    }
-
     /* FOOTER */
     footer {
       background: var(--lavender-dark);
@@ -1053,76 +410,6 @@
     footer .footer-links a:hover {
       color: #fff;
     }
-
-    .divider {
-      width: 60px;
-      height: 2px;
-      background: var(--lavender-mid);
-      margin: 0 auto 2.5rem;
-      border-radius: 2px;
-    }
-
-    /* SEARCH BAR */
-    .search-bar-wrap {
-      position: relative;
-      max-width: 100%;
-    }
-
-    .search-bar {
-      width: 100%;
-      border: 1px solid var(--border);
-      border-radius: 30px;
-      padding: 0.55rem 1.25rem 0.55rem 2.5rem;
-      font-size: 0.88rem;
-      color: var(--ink);
-      font-family: 'Karla', sans-serif;
-      background: #fff;
-      outline: none;
-      margin-bottom: 1.25rem;
-    }
-
-    .search-bar:focus {
-      border-color: var(--lavender-deep);
-    }
-
-    .search-icon {
-      position: absolute;
-      left: 0.75rem;
-      top: 50%;
-      transform: translateY(-80%);
-      color: var(--lavender-deep);
-      font-size: 0.9rem;
-    }
-
-    /* TAG FILTERS */
-    .tag-filters {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 1.5rem;
-    }
-
-    .tag-btn {
-      padding: 0.35rem 0.9rem;
-      border-radius: 20px;
-      border: 1px solid var(--border);
-      background: #fff;
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      cursor: pointer;
-      font-family: 'Karla', sans-serif;
-      font-weight: 500;
-      transition: all 0.2s;
-    }
-
-    .tag-btn.active,
-    .tag-btn:hover {
-      background: var(--lavender-deep);
-      color: #fff;
-      border-color: var(--lavender-deep);
-    }
   </style>
 </head>
 
@@ -1130,537 +417,122 @@
 
   <!-- NAVIGATION -->
   <nav>
-    <div class="nav-logo">Divine Ink</div>
+    <a href="index.html" class="nav-logo">Divine Ink</a>
     <ul class="nav-links">
-      <li><a href="#" class="active" onclick="showPage('home', this)">Home</a></li>
-      <li><a href="#" onclick="showPage('about', this)">About</a></li>
-      <li><a href="#" onclick="showPage('shop', this)">Shop</a></li>
+      <li><a href="index.html" class="nav-home active">Home</a></li>
+      <li><a href="about.html" class="nav-about">About</a></li>
+      <li><a href="products.html" class="nav-shop">Shop</a></li>
+      <li><a href="testimonials.html">Social Proof</a></li>
     </ul>
   </nav>
 
-  <!-- ======================== HOME PAGE ======================== -->
-  <div id="page-home" class="page active">
-    <section class="hero grid-bg">
-      <div class="hero-circle-1"></div>
-      <div class="hero-circle-2"></div>
+  <!-- HERO SECTION -->
+  <section class="hero grid-bg">
+    <div class="hero-circle-1"></div>
+    <div class="hero-circle-2"></div>
+
+    <div class="hero-content">
       <span class="hero-tag">✦ Divine Ink Calligraphy</span>
       <h1 class="hero-title">Divine Ink</h1>
       <p class="hero-sub">Calligraphy Studio &amp; Artisan Shop</p>
       <p class="hero-desc">Every stroke is a conversation between ink and intention. Handcrafted lettering art for those
         who believe words deserve to be beautiful.</p>
       <div>
-        <button class="btn-primary"
-          onclick="showPage('shop', document.querySelector('.nav-links a:nth-child(3) a'))">Explore Shop</button>
-        <button class="btn-outline" onclick="showPage('about', null)">About Me</button>
+        <a href="products.html" class="btn-primary">Explore Shop</a>
+        <a href="about.html" class="btn-outline">About Me</a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Featured Works -->
-    <section class="section">
-      <p class="section-label">✦ Selected Works</p>
-      <h2 class="section-title">Recent Artworks</h2>
-      <div class="works-grid">
-        <div class="work-card" onclick="openProduct('bloom')">
-          <div class="work-img work-img-1">Bloom</div>
-          <div class="work-info">
-            <p class="work-title">Bloom in Silence</p>
-            <p class="work-category">Modern Calligraphy · Print</p>
-          </div>
-        </div>
-        <div class="work-card" onclick="openProduct('grace')">
-          <div class="work-img work-img-2">Grace</div>
-          <div class="work-info">
-            <p class="work-title">Grace & Flow</p>
-            <p class="work-category">Copperplate · Commission</p>
-          </div>
-        </div>
-        <div class="work-card" onclick="openProduct('dawn')">
-          <div class="work-img work-img-3">Dawn</div>
-          <div class="work-info">
-            <p class="work-title">Dawn Letters</p>
-            <p class="work-category">Brush Lettering · Print</p>
-          </div>
+  <!-- Featured Works -->
+  <section class="section">
+    <p class="section-label">✦ Selected Works</p>
+    <h2 class="section-title">Recent Artworks</h2>
+    <div class="works-grid">
+      <div class="work-card" onclick="location.href='product-detail.html?id=bloom'">
+        <div class="work-img work-img-1">Bloom</div>
+        <div class="work-info">
+          <p class="work-title">Bloom in Silence</p>
+          <p class="work-category">Modern Calligraphy · Print</p>
         </div>
       </div>
-    </section>
-
-    <!-- Sticky Note Quote -->
-    <div class="sticky-section">
-      <div class="sticky-inner">
-        <div class="sticky-note">
-          <p>It's a privilege to write beautifully.</p>
+      <div class="work-card" onclick="location.href='product-detail.html?id=grace'">
+        <div class="work-img work-img-2">Grace</div>
+        <div class="work-info">
+          <p class="work-title">Grace & Flow</p>
+          <p class="work-category">Copperplate · Commission</p>
         </div>
-        <div class="sticky-text">
-          <h2>Words made visible</h2>
-          <p>Calligraphy is the art of giving beauty to a thought. Each piece I create carries intention, care, and the
-            quiet rhythm of a pen finding its way across paper. Whether a wedding vow or a daily affirmation — every
-            letter matters.</p>
-        </div>
-        <div class="sticky-note" style="background: var(--lavender-mid);">
-          <p>The moment you write with love, it becomes art.</p>
+      </div>
+      <div class="work-card" onclick="location.href='product-detail.html?id=dawn'">
+        <div class="work-img work-img-3">Dawn</div>
+        <div class="work-info">
+          <p class="work-title">Dawn Letters</p>
+          <p class="work-category">Brush Lettering · Print</p>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Second Featured Row -->
-    <section class="section">
-      <p class="section-label">✦ Shop Highlights</p>
-      <h2 class="section-title">Popular Pieces</h2>
-      <div class="works-grid">
-        <div class="work-card" onclick="openProduct('soul')">
-          <div class="work-img" style="background: linear-gradient(135deg,#ede8fc,#cfc6ee)">Soul</div>
-          <div class="work-info">
-            <p class="work-title">Soul Script</p>
-            <p class="work-category">Wedding Stationery</p>
-          </div>
-        </div>
-        <div class="work-card" onclick="openProduct('whisper')">
-          <div class="work-img" style="background: linear-gradient(135deg,#f2eefe,#ddd6f5)">Whisper</div>
-          <div class="work-info">
-            <p class="work-title">Whisper in Ink</p>
-            <p class="work-category">Framed Art · Print</p>
-          </div>
-        </div>
-        <div class="work-card" onclick="openProduct('ritual')">
-          <div class="work-img" style="background: linear-gradient(135deg,#e5e0f5,#c8bfea)">Ritual</div>
-          <div class="work-info">
-            <p class="work-title">Daily Ritual</p>
-            <p class="work-category">Quote Print</p>
-          </div>
-        </div>
+  <!-- Sticky Note Quote -->
+  <div class="sticky-section">
+    <div class="sticky-inner">
+      <div class="sticky-note">
+        <p>It's a privilege to write beautifully.</p>
       </div>
-    </section>
-
-    <footer>
-      <div class="footer-logo">Divine Ink</div>
-      <ul class="footer-links">
-        <li><a onclick="showPage('home', null)">Home</a></li>
-        <li><a onclick="showPage('about', null)">About</a></li>
-        <li><a onclick="showPage('shop', null)">Shop</a></li>
-      </ul>
-      <p>© 2026 Divine Ink Calligraphy. All rights reserved.<br>Handcrafted with ink &amp; intention.</p>
-    </footer>
+      <div class="sticky-text">
+        <h2>Words made visible</h2>
+        <p>Calligraphy is the art of giving beauty to a thought. Each piece I create carries intention, care, and the
+          quiet rhythm of a pen finding its way across paper. Whether a wedding vow or a daily affirmation — every
+          letter matters.</p>
+      </div>
+      <div class="sticky-note" style="background: var(--lavender-mid);">
+        <p>The moment you write with love, it becomes art.</p>
+      </div>
+    </div>
   </div>
 
-  <!-- ======================== ABOUT PAGE ======================== -->
-  <div id="page-about" class="page grid-bg">
-    <div class="about-hero">
-      <div class="about-portrait">
-        <div class="about-portrait-grid"></div>
-        <div class="about-portrait-text">
-          <span>✦</span>
-          <small>Calligrapher & Artist</small>
+  <!-- Second Featured Row -->
+  <section class="section">
+    <p class="section-label">✦ Shop Highlights</p>
+    <h2 class="section-title">Popular Pieces</h2>
+    <div class="works-grid">
+      <div class="work-card" onclick="location.href='product-detail.html?id=soul'">
+        <div class="work-img" style="background: linear-gradient(135deg,#ede8fc,#cfc6ee)">Soul</div>
+        <div class="work-info">
+          <p class="work-title">Soul Script</p>
+          <p class="work-category">Wedding Stationery</p>
         </div>
       </div>
-      <div class="about-content">
-        <p class="section-label">✦ Hello there</p>
-        <h1>I write with<br>ink &amp; heart.</h1>
-        <p>I'm a calligrapher and hand-lettering artist with a deep love for the meditative practice of writing
-          beautifully. My journey began with a single dip pen and a piece of cartridge paper, and it has grown into a
-          full studio practice.</p>
-        <p>Every piece I create carries a piece of me — the stillness of an early morning, the warmth of intention, the
-          joy of giving words a form they deserve.</p>
-        <p>I work across styles from traditional Copperplate and Spencerian scripts to contemporary brush lettering and
-          modern calligraphy — blending classic discipline with fresh expression.</p>
-        <div class="about-stats">
-          <div class="stat">
-            <div class="stat-num">8+</div>
-            <div class="stat-label">Years of Practice</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">340+</div>
-            <div class="stat-label">Commissions Done</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">12</div>
-            <div class="stat-label">Script Styles</div>
-          </div>
+      <div class="work-card" onclick="location.href='product-detail.html?id=whisper'">
+        <div class="work-img" style="background: linear-gradient(135deg,#f2eefe,#ddd6f5)">Whisper</div>
+        <div class="work-info">
+          <p class="work-title">Whisper in Ink</p>
+          <p class="work-category">Framed Art · Print</p>
         </div>
-        <button class="btn-primary" onclick="showPage('shop', null)">Browse My Shop →</button>
       </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="skills-section">
-      <p class="section-label">✦ My Craft</p>
-      <h2 class="section-title">What I Specialize In</h2>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="skill-icon">𝒞</div>
-          <h3>Copperplate</h3>
-          <p>The grand dame of scripts — precise, elegant, timelessly beautiful. Perfect for wedding invitations and
-            certificates.</p>
-          <div class="skill-card-corner"></div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">𝑩</div>
-          <h3>Brush Lettering</h3>
-          <p>Fluid and expressive, brush lettering brings energy and life to quotes, prints, and signage.</p>
-          <div class="skill-card-corner"></div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">𝒮</div>
-          <h3>Spencerian</h3>
-          <p>A 19th-century American script known for its graceful shading and oval letterforms.</p>
-          <div class="skill-card-corner"></div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">𝑀</div>
-          <h3>Modern Calligraphy</h3>
-          <p>Freestyle, contemporary, and full of personality. My most popular style for art prints and custom gifts.
-          </p>
-          <div class="skill-card-corner"></div>
+      <div class="work-card" onclick="location.href='product-detail.html?id=ritual'">
+        <div class="work-img" style="background: linear-gradient(135deg,#e5e0f5,#c8bfea)">Ritual</div>
+        <div class="work-info">
+          <p class="work-title">Daily Ritual</p>
+          <p class="work-category">Quote Print</p>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Sticky quote section -->
-    <div class="sticky-section">
-      <div class="sticky-inner">
-        <div class="sticky-text" style="max-width:600px; margin: 0 auto; text-align: center;">
-          <h2>Every commission is a collaboration</h2>
-          <p>I love working with clients to find the words and the style that feel truly theirs. If you have something
-            in mind — a wedding, a gift, a piece of art for your wall — I'd love to hear from you.</p>
-          <br>
-          <button class="btn-primary" onclick="showPage('shop', null)">Commission a Piece</button>
-        </div>
-      </div>
-    </div>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Divine Ink</div>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="products.html">Shop</a></li>
+      <li><a href="testimonials.html">Social Proof</a></li>
+      <li><a href="https://instagram.com" target="_blank" title="Follow us on Instagram">Instagram</a></li>
+    </ul>
+    <p>© 2026 Divine Ink Calligraphy. All rights reserved.<br>Handcrafted with ink &amp; intention.</p>
+  </footer>
 
-    <footer>
-      <div class="footer-logo">Divine Ink</div>
-      <ul class="footer-links">
-        <li><a onclick="showPage('home', null)">Home</a></li>
-        <li><a onclick="showPage('about', null)">About</a></li>
-        <li><a onclick="showPage('shop', null)">Shop</a></li>
-      </ul>
-      <p>© 2026 Divine Ink Calligraphy. All rights reserved.</p>
-    </footer>
-  </div>
-
-  <!-- ======================== SHOP PAGE ======================== -->
-  <div id="page-shop" class="page grid-bg">
-    <div class="shop-header">
-      <p class="section-label">✦ The Collection</p>
-      <h1>Art Shop</h1>
-      <p>Original prints, commissions &amp; stationery — all handwritten with love.</p>
-    </div>
-
-    <div class="shop-layout">
-      <!-- Filters -->
-      <aside class="filters-panel">
-        <p class="filter-title">Filters</p>
-
-        <div class="filter-group">
-          <p class="filter-group-label">Search</p>
-          <div class="search-bar-wrap">
-            <span class="search-icon">⌕</span>
-            <input class="search-bar" type="text" placeholder="Search pieces..." id="search-input"
-              oninput="filterProducts()">
-          </div>
-        </div>
-
-        <div class="filter-group">
-          <p class="filter-group-label">Category</p>
-          <label class="filter-option"><input type="checkbox" value="print" onchange="filterProducts()"
-              class="cat-check"> Art Prints</label>
-          <label class="filter-option"><input type="checkbox" value="commission" onchange="filterProducts()"
-              class="cat-check"> Commissions</label>
-          <label class="filter-option"><input type="checkbox" value="stationery" onchange="filterProducts()"
-              class="cat-check"> Stationery</label>
-          <label class="filter-option"><input type="checkbox" value="framed" onchange="filterProducts()"
-              class="cat-check"> Framed Art</label>
-        </div>
-
-        <div class="filter-group">
-          <p class="filter-group-label">Style</p>
-          <label class="filter-option"><input type="checkbox" value="modern" onchange="filterProducts()"
-              class="style-check"> Modern Calligraphy</label>
-          <label class="filter-option"><input type="checkbox" value="copperplate" onchange="filterProducts()"
-              class="style-check"> Copperplate</label>
-          <label class="filter-option"><input type="checkbox" value="brush" onchange="filterProducts()"
-              class="style-check"> Brush Lettering</label>
-        </div>
-
-        <div class="filter-group">
-          <p class="filter-group-label">Price Range (₹)</p>
-          <div class="price-range">
-            <input type="number" id="price-min" placeholder="0" oninput="filterProducts()">
-            <span>—</span>
-            <input type="number" id="price-max" placeholder="5000" oninput="filterProducts()">
-          </div>
-        </div>
-
-        <button class="filter-apply" onclick="clearFilters()">Clear All Filters</button>
-      </aside>
-
-      <!-- Products -->
-      <div>
-        <div class="shop-results-bar">
-          <p class="results-count" id="results-count">Showing 8 pieces</p>
-          <select class="sort-select" onchange="sortProducts(this.value)">
-            <option value="default">Sort: Featured</option>
-            <option value="price-asc">Price: Low to High</option>
-            <option value="price-desc">Price: High to Low</option>
-            <option value="name">Name A–Z</option>
-          </select>
-        </div>
-
-        <div class="tag-filters">
-          <button class="tag-btn active" onclick="setTagFilter('all', this)">All</button>
-          <button class="tag-btn" onclick="setTagFilter('print', this)">Prints</button>
-          <button class="tag-btn" onclick="setTagFilter('commission', this)">Commissions</button>
-          <button class="tag-btn" onclick="setTagFilter('stationery', this)">Stationery</button>
-          <button class="tag-btn" onclick="setTagFilter('framed', this)">Framed</button>
-        </div>
-
-        <div class="products-grid" id="products-grid"></div>
-      </div>
-    </div>
-
-    <footer>
-      <div class="footer-logo">Divine Ink</div>
-      <ul class="footer-links">
-        <li><a onclick="showPage('home', null)">Home</a></li>
-        <li><a onclick="showPage('about', null)">About</a></li>
-        <li><a onclick="showPage('shop', null)">Shop</a></li>
-      </ul>
-      <p>© 2026 Divine Ink Calligraphy. All rights reserved.</p>
-    </footer>
-  </div>
-
-  <!-- ======================== PRODUCT DETAIL PAGE ======================== -->
-  <div id="page-detail" class="page grid-bg">
-    <div class="detail-layout">
-      <div class="detail-img-wrap">
-        <div class="detail-main-img" id="detail-img">
-          <div class="about-portrait-grid"></div>
-          <span id="detail-img-text" style="position:relative;z-index:1"></span>
-        </div>
-        <div class="detail-thumbs">
-          <div class="detail-thumb active" id="thumb-1"></div>
-          <div class="detail-thumb" id="thumb-2" style="background:var(--lavender-mid)"></div>
-          <div class="detail-thumb" id="thumb-3" style="background:var(--cream-2)"></div>
-        </div>
-      </div>
-      <div class="detail-content">
-        <div class="detail-back" onclick="showPage('shop', null)">← Back to Shop</div>
-        <p class="product-type" id="detail-type"></p>
-        <h1 class="detail-title" id="detail-title"></h1>
-        <p class="detail-price" id="detail-price"></p>
-        <p class="detail-desc" id="detail-desc"></p>
-
-        <div class="detail-options">
-          <p class="option-label">Size</p>
-          <div class="option-pills">
-            <span class="option-pill selected" onclick="selectPill(this)">A5</span>
-            <span class="option-pill" onclick="selectPill(this)">A4</span>
-            <span class="option-pill" onclick="selectPill(this)">A3</span>
-            <span class="option-pill" onclick="selectPill(this)">Custom</span>
-          </div>
-        </div>
-
-        <div class="detail-options">
-          <p class="option-label">Finish</p>
-          <div class="option-pills">
-            <span class="option-pill selected" onclick="selectPill(this)">Matte</span>
-            <span class="option-pill" onclick="selectPill(this)">Gloss</span>
-            <span class="option-pill" onclick="selectPill(this)">Unframed</span>
-          </div>
-        </div>
-
-        <div class="detail-actions">
-          <button class="btn-primary">Add to Cart</button>
-          <button class="btn-outline">Wishlist ♡</button>
-        </div>
-
-        <div class="detail-specs">
-          <p class="option-label" style="margin-bottom:0.75rem">Details</p>
-          <div class="spec-row"><span class="spec-key">Medium</span><span class="spec-val">Ink on Cotton Paper</span>
-          </div>
-          <div class="spec-row"><span class="spec-key">Script Style</span><span class="spec-val" id="spec-style"></span>
-          </div>
-          <div class="spec-row"><span class="spec-key">Dispatch</span><span class="spec-val">5–7 business days</span>
-          </div>
-          <div class="spec-row"><span class="spec-key">Framing</span><span class="spec-val">Optional add-on</span></div>
-          <div class="spec-row"><span class="spec-key">Customizable</span><span class="spec-val">Yes — contact us</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="related-section">
-      <p class="section-label">✦ You Might Also Like</p>
-      <h2 class="section-title">Related Pieces</h2>
-      <div class="products-grid" id="related-grid"></div>
-    </div>
-
-    <footer>
-      <div class="footer-logo">Divine Ink</div>
-      <ul class="footer-links">
-        <li><a onclick="showPage('home', null)">Home</a></li>
-        <li><a onclick="showPage('about', null)">About</a></li>
-        <li><a onclick="showPage('shop', null)">Shop</a></li>
-      </ul>
-      <p>© 2026 Divine Ink Calligraphy. All rights reserved.</p>
-    </footer>
-  </div>
-
-  <script>
-    // ── DATA ──────────────────────────────────────────────────────
-    const products = [
-      {
-        id: 'bloom',
-        name: 'Bloom in Silence',
-        type: 'Art Print',
-        category: 'print',
-        style: 'modern',
-        price: 1200,
-        badge: 'Bestseller',
-        desc: 'A meditation on growth — penned in flowing modern calligraphy on heavy cotton paper. Perfect above a reading nook or desk.'
-      },
-      { id: 'grace', name: 'Grace & Flow', type: 'Commission', category: 'commission', style: 'copperplate', price: 3500, badge: '', desc: 'A bespoke copperplate piece. Commission this style with your chosen words and I will create something timeless for you.' },
-      { id: 'dawn', name: 'Dawn Letters', type: 'Brush Lettering', category: 'print', style: 'brush', price: 950, badge: 'New', desc: 'Loose and luminous, Dawn Letters captures the feeling of early mornings — written in expressive brush lettering.' },
-      { id: 'soul', name: 'Soul Script', type: 'Wedding Stationery', category: 'stationery', style: 'copperplate', price: 4800, badge: '', desc: 'Elegant copperplate for wedding invitations, menus, and place cards. Minimum order of 50 applies.' },
-      { id: 'whisper', name: 'Whisper in Ink', type: 'Framed Art', category: 'framed', style: 'modern', price: 2200, badge: '', desc: 'A whisper of words in contemporary script — framed in soft white and ready to hang. A quiet statement piece.' },
-      { id: 'ritual', name: 'Daily Ritual', type: 'Quote Print', category: 'print', style: 'brush', price: 800, badge: '', desc: 'A brush-lettered reminder for your daily practice. Ships unframed on premium matte card stock.' },
-      { id: 'verse', name: 'Velvet Verse', type: 'Framed Art', category: 'framed', style: 'modern', price: 2800, badge: 'New', desc: 'Rich strokes and velvety ink — an original artwork in a rich lavender palette, ready to frame.' },
-      { id: 'ember', name: 'Ember & Quill', type: 'Commission', category: 'commission', style: 'copperplate', price: 5200, badge: '', desc: 'A deeply personal copperplate commission — a poem, a letter, a vow. Tell me your story.' },
-    ];
-
-    let activeTag = 'all';
-    let sortOrder = 'default';
-
-    const bgColors = ['linear-gradient(135deg,#e8e3f8,#d5ccf0)', 'linear-gradient(135deg,#f0ebfe,#ddd5f5)', 'linear-gradient(135deg,#e3ddf5,#ccc3e8)', 'linear-gradient(135deg,#ede8fc,#cfc6ee)', 'linear-gradient(135deg,#f2eefe,#ddd6f5)', 'linear-gradient(135deg,#e5e0f5,#c8bfea)', 'linear-gradient(135deg,#eae5fc,#d4ccf0)', 'linear-gradient(135deg,#f5f0fe,#e2dafc)'];
-
-    function renderProducts(list) {
-      const grid = document.getElementById('products-grid');
-      document.getElementById('results-count').textContent = `Showing ${list.length} piece${list.length !== 1 ? 's' : ''}`;
-      grid.innerHTML = list.map((p, i) => `
-      <div class="product-card" onclick="openProduct('${p.id}')">
-        <div class="product-thumb" style="background:${bgColors[i % bgColors.length]}">
-          ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
-          <span style="font-family:'Dancing Script',cursive;font-size:1.8rem;color:var(--lavender-deep)">${p.name.split(' ')[0]}</span>
-        </div>
-        <div class="product-body">
-          <p class="product-name">${p.name}</p>
-          <p class="product-type">${p.type}</p>
-          <div class="product-footer">
-            <span class="product-price">₹${p.price.toLocaleString()}</span>
-            <button class="btn-cart" onclick="event.stopPropagation()">+ Cart</button>
-          </div>
-        </div>
-      </div>
-      `).join('');
-    }
-
-    function getFilteredProducts() {
-      let list = [...products];
-
-      // Tag filter
-      if (activeTag !== 'all') list = list.filter(p => p.category === activeTag);
-
-      // Checkbox categories
-      const catChecks = [...document.querySelectorAll('.cat-check:checked')].map(c => c.value);
-      if (catChecks.length) list = list.filter(p => catChecks.includes(p.category));
-
-      // Style checkboxes
-      const styleChecks = [...document.querySelectorAll('.style-check:checked')].map(c => c.value);
-      if (styleChecks.length) list = list.filter(p => styleChecks.includes(p.style));
-
-      // Price
-      const minP = parseFloat(document.getElementById('price-min').value) || 0;
-      const maxP = parseFloat(document.getElementById('price-max').value) || Infinity;
-      list = list.filter(p => p.price >= minP && p.price <= maxP);
-
-      // Search
-      const q = document.getElementById('search-input').value.toLowerCase();
-      if (q) list = list.filter(p => p.name.toLowerCase().includes(q) || p.type.toLowerCase().includes(q));
-
-      // Sort
-      if (sortOrder === 'price-asc') list.sort((a, b) => a.price - b.price);
-      else if (sortOrder === 'price-desc') list.sort((a, b) => b.price - a.price);
-      else if (sortOrder === 'name') list.sort((a, b) => a.name.localeCompare(b.name));
-
-      return list;
-    }
-
-    function filterProducts() { renderProducts(getFilteredProducts()); }
-
-    function sortProducts(val) { sortOrder = val; filterProducts(); }
-
-    function setTagFilter(tag, btn) {
-      activeTag = tag;
-      document.querySelectorAll('.tag-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      filterProducts();
-    }
-
-    function clearFilters() {
-      activeTag = 'all';
-      document.querySelectorAll('.tag-btn').forEach(b => b.classList.remove('active'));
-      document.querySelector('.tag-btn').classList.add('active');
-      document.querySelectorAll('.cat-check, .style-check').forEach(c => c.checked = false);
-      document.getElementById('price-min').value = '';
-      document.getElementById('price-max').value = '';
-      document.getElementById('search-input').value = '';
-      sortOrder = 'default';
-      document.querySelector('.sort-select').value = 'default';
-      filterProducts();
-    }
-
-    // ── NAVIGATION ─────────────────────────────────────────────────
-    function showPage(name, linkEl) {
-      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-      document.getElementById('page-' + name).classList.add('active');
-      document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-      if (linkEl) linkEl.classList.add('active');
-      window.scrollTo(0, 0);
-      if (name === 'shop') renderProducts(getFilteredProducts());
-    }
-
-    // ── PRODUCT DETAIL ─────────────────────────────────────────────
-    function openProduct(id) {
-      const p = products.find(x => x.id === id);
-      if (!p) return;
-      document.getElementById('detail-title').textContent = p.name;
-      document.getElementById('detail-type').textContent = p.type;
-      document.getElementById('detail-price').textContent = '₹' + p.price.toLocaleString();
-      document.getElementById('detail-desc').textContent = p.desc;
-      document.getElementById('detail-img-text').textContent = p.name.split(' ')[0];
-      document.getElementById('spec-style').textContent = p.style === 'modern' ? 'Modern Calligraphy' : p.style === 'copperplate' ? 'Copperplate' : 'Brush Lettering';
-      document.getElementById('thumb-1').textContent = p.name[0];
-
-      // Related products
-      const related = products.filter(x => x.id !== id && x.category === p.category).slice(0, 3);
-      document.getElementById('related-grid').innerHTML = related.map((r, i) => `
-    <div class="product-card" onclick="openProduct('${r.id}')">
-      <div class="product-thumb" style="background:${bgColors[i % bgColors.length]}">
-        <span style="font-family:'Dancing Script',cursive;font-size:1.8rem;color:var(--lavender-deep)">${r.name.split(' ')[0]}</span>
-      </div>
-      <div class="product-body">
-        <p class="product-name">${r.name}</p>
-        <p class="product-type">${r.type}</p>
-        <div class="product-footer">
-          <span class="product-price">₹${r.price.toLocaleString()}</span>
-          <button class="btn-cart" onclick="event.stopPropagation()">+ Cart</button>
-        </div>
-      </div>
-    </div>
-  `).join('');
-
-      showPage('detail', null);
-    }
-
-    function selectPill(el) {
-      el.parentNode.querySelectorAll('.option-pill').forEach(p => p.classList.remove('selected'));
-      el.classList.add('selected');
-    }
-
-    // Initial render
-    renderProducts(products);
-  </script>
 </body>
 
 </html>

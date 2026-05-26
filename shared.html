@@ -1,0 +1,205 @@
+<!-- SHARED COMPONENTS (Navigation, Footer, Styles) -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@400;600;700&family=Karla:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --lavender: #b8a9e8;
+      --lavender-light: #e8e3f8;
+      --lavender-mid: #d0c6f0;
+      --lavender-deep: #7c6bb5;
+      --lavender-dark: #4a3c80;
+      --ink: #2a2040;
+      --ink-muted: #5a5270;
+      --cream: #faf9ff;
+      --cream-2: #f3f0fc;
+      --sticky-1: #ddd5f5;
+      --sticky-2: #c9bde8;
+      --border: rgba(124, 107, 181, 0.25);
+      --shadow: 0 4px 24px rgba(74, 60, 128, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Karla', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* GRID PAPER BACKGROUND */
+    .grid-bg {
+      background-color: var(--cream);
+      background-image:
+        linear-gradient(rgba(180, 160, 220, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(180, 160, 220, 0.15) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(250, 249, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--lavender-deep);
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.25rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      padding: 0.4rem 0.9rem;
+      border-radius: 20px;
+      transition: all 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: var(--lavender-light);
+      color: var(--lavender-dark);
+    }
+
+    @media (max-width: 720px) {
+      nav {
+        padding: 0 1rem;
+      }
+
+      .nav-links a {
+        padding: 0.35rem 0.6rem;
+        font-size: 0.72rem;
+      }
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--lavender-dark);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    footer .footer-logo {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2rem;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    footer p {
+      font-size: 0.82rem;
+      line-height: 1.7;
+    }
+
+    footer .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 1.25rem 0;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    footer .footer-links a {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    footer .footer-links a:hover {
+      color: #fff;
+    }
+
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: var(--lavender-mid);
+      margin: 0 auto 2.5rem;
+      border-radius: 2px;
+    }
+  </style>
+</head>
+
+<body class="grid-bg">
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html" class="nav-logo">Divine Ink</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-home">Home</a></li>
+      <li><a href="about.html" class="nav-about">About</a></li>
+      <li><a href="products.html" class="nav-shop">Shop</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE CONTENT WILL BE INJECTED HERE -->
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Divine Ink</div>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="products.html">Shop</a></li>
+    </ul>
+    <p>© 2026 Divine Ink Calligraphy. All rights reserved.<br>Handcrafted with ink &amp; intention.</p>
+  </footer>
+
+  <script>
+    // Set active nav link
+    function setActiveNav() {
+      const page = window.location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.classList.remove('active');
+      });
+      if (page === 'index.html' || page === '') document.querySelector('.nav-home').classList.add('active');
+      else if (page === 'about.html') document.querySelector('.nav-about').classList.add('active');
+      else if (page === 'products.html') document.querySelector('.nav-shop').classList.add('active');
+    }
+    setActiveNav();
+  </script>
+
+</body>
+
+</html>

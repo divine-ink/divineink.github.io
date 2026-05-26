@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details - Divine Ink Calligraphy</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@400;600;700&family=Karla:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/product-detail.css">
+</head>
+
+<body class="grid-bg">
+
+  <!-- RIBBON BANNER -->
+  <div class="ribbon">
+    <span class="ribbon-text">
+      ✦ Collaborated with poets from 35+ countries • Delivered physical artworks across 20+ countries • Created content for 15+ luxury pen and stationery brands around the world ✦
+    </span>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html" class="nav-logo">Divine Ink</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-home">Home</a></li>
+      <li><a href="about.html" class="nav-about">About</a></li>
+      <li><a href="products.html" class="nav-shop active">Shop</a></li>
+      <li><a href="testimonials.html">Social Proof</a></li>
+    </ul>
+  </nav>
+
+  <!-- PRODUCT DETAIL LAYOUT -->
+  <div class="detail-layout">
+    <!-- IMAGE SECTION -->
+    <div class="detail-img-wrap">
+      <div class="detail-main-img" id="detail-img">
+        <div class="about-portrait-grid"></div>
+        <span id="detail-img-text" style="position:relative;z-index:1"></span>
+      </div>
+      <div class="detail-thumbs">
+        <div class="detail-thumb active" id="thumb-1"></div>
+        <div class="detail-thumb" id="thumb-2" style="background:var(--lavender-mid)"></div>
+        <div class="detail-thumb" id="thumb-3" style="background:var(--cream-2)"></div>
+      </div>
+    </div>
+
+    <!-- PRODUCT INFO SECTION -->
+    <div class="detail-content">
+      <div class="detail-back" onclick="history.back()">← Back to Shop</div>
+      <p class="product-type" id="detail-type"></p>
+      <h1 class="detail-title" id="detail-title"></h1>
+      <p class="detail-price" id="detail-price"></p>
+      <p class="detail-desc" id="detail-desc"></p>
+
+      <!-- SIZE OPTIONS -->
+      <div class="detail-options">
+        <p class="option-label">Size</p>
+        <div class="option-pills">
+          <span class="option-pill selected" onclick="selectPill(this)">A5</span>
+          <span class="option-pill" onclick="selectPill(this)">A4</span>
+          <span class="option-pill" onclick="selectPill(this)">A3</span>
+          <span class="option-pill" onclick="selectPill(this)">Custom</span>
+        </div>
+      </div>
+
+      <!-- FINISH OPTIONS -->
+      <div class="detail-options">
+        <p class="option-label">Finish</p>
+        <div class="option-pills">
+          <span class="option-pill selected" onclick="selectPill(this)">Matte</span>
+          <span class="option-pill" onclick="selectPill(this)">Gloss</span>
+          <span class="option-pill" onclick="selectPill(this)">Unframed</span>
+        </div>
+      </div>
+
+      <!-- ACTION BUTTONS -->
+      <div class="detail-actions">
+        <button class="btn-primary" onclick="sendPurchaseEmail()">Add to Cart</button>
+        <button class="btn-outline">Wishlist ♡</button>
+      </div>
+
+      <!-- SPECS -->
+      <div class="detail-specs">
+        <p class="option-label" style="margin-bottom:0.75rem">Details</p>
+        <div class="spec-row"><span class="spec-key">Medium</span><span class="spec-val">Ink on Cotton Paper</span></div>
+        <div class="spec-row"><span class="spec-key">Script Style</span><span class="spec-val" id="spec-style"></span></div>
+        <div class="spec-row"><span class="spec-key">Dispatch</span><span class="spec-val">5–7 business days</span></div>
+        <div class="spec-row"><span class="spec-key">Framing</span><span class="spec-val">Optional add-on</span></div>
+        <div class="spec-row"><span class="spec-key">Customizable</span><span class="spec-val">Yes — contact us</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RELATED PRODUCTS -->
+  <div class="related-section">
+    <p class="section-label">✦ You Might Also Like</p>
+    <h2 class="section-title">Related Pieces</h2>
+    <div class="products-grid" id="related-grid"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Divine Ink</div>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="products.html">Shop</a></li>
+      <li><a href="testimonials.html">Social Proof</a></li>
+      <li><a href="https://instagram.com" target="_blank" title="Follow us on Instagram">Instagram</a></li>
+    </ul>
+    <p>© 2026 Divine Ink Calligraphy. All rights reserved.</p>
+  </footer>
+
+  <script src="js/products-data.js"></script>
+  <script src="js/product-detail.js"></script>
+
+</body>
+
+</html>
