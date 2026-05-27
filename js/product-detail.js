@@ -20,7 +20,6 @@ function openProduct(id) {
   mainImg.innerHTML = `
     <img src="${p.image}" alt="${p.name}" onerror="this.style.display='none'">
     <div class="about-portrait-grid"></div>
-    <span id="detail-img-text" style="position:relative;z-index:1">${p.name.split(' ')[0]}</span>
   `;
 
   // Thumbnails
@@ -30,8 +29,8 @@ function openProduct(id) {
 
   document.getElementById('spec-style').textContent =
     p.style === 'modern' ? 'Modern Calligraphy' :
-    p.style === 'copperplate' ? 'Copperplate' :
-    'Brush Lettering';
+      p.style === 'copperplate' ? 'Copperplate' :
+        'Brush Lettering';
 
   // Related products
   const related = products.filter(x => x.id !== id && x.category === p.category).slice(0, 3);
